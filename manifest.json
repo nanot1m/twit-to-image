@@ -1,0 +1,17 @@
+{
+  "name": "Twit To Image",
+  "description": "Converts twit to image",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*"],
+      "js": ["dom-to-image.js", "main.js"]
+    }
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}
