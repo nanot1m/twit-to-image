@@ -20,10 +20,20 @@ document.addEventListener("click", (e) => {
     button.innerText = "Copy twit as PNG";
 
     button.addEventListener("click", () => {
+      const bodyBg = document.body.style.backgroundColor;
+      const originalTwitBg = twit.style.backgroundColor;
+      const originalTwitTransitionStyle = twit.style.transition;
+
+      twit.style.backgroundColor = bodyBg;
+      twit.style.transition = "none";
+
       toBlob(twit).then((blob) => {
         navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
       });
       menu.remove();
+
+      twit.style.backgroundColor = originalTwitBg;
+      twit.style.transition = originalTwitTransitionStyle;
     });
 
     lastMenuItem.classList.forEach((className) => {
